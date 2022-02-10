@@ -1,0 +1,10 @@
+{"records":[
+    {"id":1,"name":"Tenzin","age":22,"gender":"Male","salary":50000,"Address":"Bangalore"},
+    {"id":2,"name":"Yeshi","age":23,"gender":"Female","salary":70000,"Address":"Mumbai"},
+    {"id":3,"name":"David","age":26,"gender":"Male","salary":40000,"Address":"Delhi"},
+    {"id":4,"name":"Emma","age":25,"gender":"Female","salary":34000,"Address":"Kolkata"},
+    {"id":5,"name":"Nailea","age":22,"gender":"Female","salary":66000,"Address":"Pune"},
+    {"id":6,"name":"Carly","age":21,"gender":"Female","salary":21000,"Address":"Bangalore"},
+    {"id":7,"name":"Jeff","age":16,"gender":"Male","salary":39000,"Address":"Bangalore"},
+    {"id":8,"name":"Jason","age":19,"gender":"Male","salary":80000,"Address":"Delhi"}
+]}
