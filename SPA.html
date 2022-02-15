@@ -1,0 +1,209 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+</head>
+
+<style>
+body {
+  font-family: "Lato", sans-serif;
+ 
+}
+
+
+.b_bg {
+  width: 100%;
+  height: 20%;
+ position: absolute;
+ opacity:0.7;
+  z-index:-1;
+}
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #fc2828;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+body {
+                padding: 0px;
+                margin: 0;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+            
+            .container1 {
+                position: absolute;
+                left: 20%;
+                top: 20%;
+                box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            
+            
+            tr {
+                
+                transition: all .2s ease-in;
+                cursor: pointer;
+            }
+            
+            th,
+            td {
+                padding: 12px;
+                text-align: left;
+                border-bottom: 2px solid #ddd;
+            }
+            
+            #header {
+                background-color: #833c3c;
+                color: #833c3c;
+            }
+            
+            h3{
+                text-align: center;
+
+                color: rgb(7, 7, 7);
+                font-family:sans-serif;
+                padding: 6px 0px;
+            }
+            
+            tr:hover {
+                background-color: #833c3c;
+                transform: scale(1.02);
+                box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+            }
+            
+            @media only screen and (max-width: 768px) {
+                table {
+                    width: 50%;
+                }
+            }
+  </style>
+ 
+ 
+
+<body>
+
+<div class="sidenav">
+        <a href="#/">Company contact</a>
+        <a href="#/database">Database  of Employees</a>
+        <a href="#/databasewithsearch">Search</a>
+</div>
+<br>
+<br>
+
+
+<script type="text/ng-template" id="1.html">
+  <div class="b_bg">
+    <img src="bg2.jpeg" />
+  </div>
+<center><h3>{{message}}</h3></center>
+
+</script>
+
+
+
+<script type="text/ng-template" id="2.html">
+  <div>
+  <h3>Employee Data</h3>
+  </div>
+  <div class="container1" ng-controller="SecondController">
+    
+    <form name="commonForm">
+      <center>
+      <table class="table">
+        <tr style="background: color #833c3c">
+          <th> ID </th>
+          <th> Name </th>
+          <th> Designation </th>
+          <th> Workexperience </th>
+          <th> Address </th>
+          <th> Phone </th>
+          <th> Salary </th>
+        </tr>
+      </center>
+        <tr ng-repeat="user in userData | filter : test">
+          <td> {{user.ID}}</td>
+          <td> {{user.Name}}</td>
+          <td> {{user.Designation | lowercase}}</td>
+          <td> {{user.Workexperience }}</td>
+          <td> {{user.Address}}</td>
+          <td> {{user.Phone}}</td>
+          <td> {{user.Salary}}</td>
+        </tr>
+      </table>
+      <br>
+    </form>
+  </div>
+</script>
+
+
+<script type="text/ng-template" id="3.html">
+  <div>
+    <h3>Search Employees</h3>
+    </div>
+  <div class ="container1" ng-controller="ThirdController">
+    <center><p>Search name:<input type="text" ng-model="test"></p></center>
+     <form name="commonForm">
+       <center>
+      <table class="table">
+        <tr>
+          <th> ID </th>
+          <th> Name </th>
+          <th> Designation </th>
+          <th> Workexperience </th>
+          <th> Address </th>
+          <th> Phone </th>
+          <th> Salary </th>
+        </tr>
+      </center>
+        <tr ng-repeat="user in userData | filter : test">
+          <td> {{user.ID}}</td>
+          <td> {{user.Name}}</td>
+          <td> {{user.Designation | lowercase}}</td>
+          <td> {{user.Workexperience }}</td>
+          <td> {{user.Address}}</td>
+          <td> {{user.Phone}}</td>
+          <td> {{user.Salary}}</td>
+        </tr>
+      </table>
+      <br>
+    </form> 
+
+  </div>
+</script>
+
+
+<div ng-view></div>
+
+<script src="jason.js"></script>
+</body>
+</html>
